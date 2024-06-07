@@ -1,10 +1,45 @@
-﻿namespace MethodOverloading
+﻿using System.ComponentModel;
+using System.Diagnostics;
+
+namespace MethodOverloading
 {
     public class Program
     {
+
+        public static int Add(int num1, int num2) 
+        {
+        
+            int sum = num1 + num2;
+            return sum;
+           
+        
+        }
+
+        public static decimal Add(decimal num1, decimal num2) 
+        
+        {
+
+            decimal sum = num1 + num2;
+            return sum;
+        
+        }
+
+        public static string Add(int num1, int num2, bool CanShowDollar) 
+        
+        {
+            string dollars = num1 + num2 == 1 ? "dollar" : "dollars";
+            return CanShowDollar ? $"{num1 + num2} {dollars}" : $"{num1 + num2}";
+
+        }
+
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            
+            Console.WriteLine(Add(3, 6));
+            Console.WriteLine(Add(3.2m, 5.4m));
+            Console.WriteLine(Add(0, 3, true));
+
+
         }
     }
 }
